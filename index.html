@@ -817,6 +817,211 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/20/DOM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="R.Y">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/dog.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="R.Y">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/20/DOM/" itemprop="url">DOM （冒泡、捕获、点击隐藏浮层）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-20T00:00:00+08:00">
+                2018-08-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Document-Object-Model-文档对象模型"><a href="#Document-Object-Model-文档对象模型" class="headerlink" title="Document Object Model(文档对象模型)"></a>Document Object Model(文档对象模型)</h1><h2 id="DOM的主要功能："><a href="#DOM的主要功能：" class="headerlink" title="DOM的主要功能："></a>DOM的主要功能：</h2><p>页面中的节点（Node），通过<code>构造函数</code>（Document，Element，Text，Comment…等构造函数），构造出对应的对象。<br>Node也是一个构造函数， 派生于 Object，所以 Node 构造出来的函数，也有 Object 的公有属性。</p>
+<h4 id="Node-构造了-Document-DocumentType-Elment-Text-Comment-DocumentFragment…-等类型。"><a href="#Node-构造了-Document-DocumentType-Elment-Text-Comment-DocumentFragment…-等类型。" class="headerlink" title="Node 构造了 Document DocumentType Elment Text Comment DocumentFragment… 等类型。"></a>Node 构造了 <b><code>Document</code> <code>DocumentType</code> <code>Elment</code> <code>Text</code> <code>Comment</code> <code>DocumentFragment</code>…</b> 等类型。</h4><blockquote>
+<p><b><code>Document</code></b> 构造了<code>&lt;html&gt;</code>标签。<br><b><code>Element</code></b> 构造了<code>&lt;head&gt;</code> <code>&lt;body&gt;</code> <code>&lt;meta&gt;</code> <code>&lt;title&gt;</code> <code>&lt;script&gt;</code> <code>&lt;h1&gt;</code>…标签。<br><b><code>Text</code></b>构造了页面中 <code>文本</code>。<br><b><code>Comment</code></b>构造了页面中 <code>注释</code>。</p>
+</blockquote>
+<hr>
+
+
+<h2 id="Node-接口"><a href="#Node-接口" class="headerlink" title="Node 接口"></a>Node 接口</h2><h4 id="Node-属性：查阅MDN"><a href="#Node-属性：查阅MDN" class="headerlink" title="Node 属性：查阅MDN"></a>Node 属性：<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Node" target="_blank" rel="noopener">查阅MDN</a></h4><blockquote>
+<p>childNode,fristChild,<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Node/innerText" target="_blank" rel="noopener">innerText</a>,lastChild,<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Node/nextSibling" target="_blank" rel="noopener">nextSibling</a>,nodeName,<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Node/nodeType" target="_blank" rel="noopener">nodeType</a>,nodeValue,outerValue,ownDocument,parentElement,parentNode,previousSibling,<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Node/textContent" target="_blank" rel="noopener">textContent</a></p>
+</blockquote>
+<ul>
+<li>1.<a href="https://www.cnblogs.com/wangwg1994/p/8412866.html" target="_blank" rel="noopener">innerText 和 textContent 区别</a></li>
+<li>2.nodeType 1 和 3 分别代表什么</li>
+</ul>
+<h4 id="Node-方法：查阅MDN"><a href="#Node-方法：查阅MDN" class="headerlink" title="Node 方法：查阅MDN"></a>Node 方法：<a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild" target="_blank" rel="noopener">查阅MDN</a></h4><ul>
+<li><code>appendChild()</code>添加子元素</li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Node/cloneNode" target="_blank" rel="noopener"><code>cloneNode()</code></a>克隆节点（分<code>true深拷贝</code>、<code>false浅拷贝</code>）</li>
+<li><code>contains()</code>是否包含另一个元素</li>
+<li><code>hasChildNodes()</code>是否有子元素，返回一个布尔值</li>
+<li><code>insertBefore()</code>把…插到…前面</li>
+<li><code>isEqualNode()</code>是否是相等的节点</li>
+<li><code>isSameNode()</code>是否是相同的节点（同一个 ‘===’）</li>
+<li><code>removeChild()</code>移除子元素（还是存在于内存中）</li>
+<li><code>replaceChild()</code>替换子元素（）</li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Node/normalize" target="_blank" rel="noopener"><code>normalize()</code></a>使…正常</li>
+</ul>
+<h2 id="Document-接口"><a href="#Document-接口" class="headerlink" title="Document 接口"></a>Document 接口</h2><p>查看document属性 <code>console.dir(document)</code><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document" target="_blank" rel="noopener">Document MDN</a></p>
+<h4 id="Document-属性-查询MDN"><a href="#Document-属性-查询MDN" class="headerlink" title="Document 属性 查询MDN"></a>Document 属性 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/body" target="_blank" rel="noopener">查询MDN</a></h4><blockquote>
+<p>body,characterSet,childElementCount,children,doctype,documentElement,domain,fullscreen,head,hidden,images,<br>links,location,onxxxxxx,origin,plugins,readState,referrer,scripts,scrollingElement,styleSheets,title,visibilityState</p>
+</blockquote>
+<h4 id="Document-方法-查询MDN"><a href="#Document-方法-查询MDN" class="headerlink" title="Document 方法 查询MDN"></a>Document 方法 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/close" target="_blank" rel="noopener">查询MDN</a></h4><ul>
+<li><code>close()</code></li>
+<li><code>createAttribute</code></li>
+<li><code>createElement</code></li>
+</ul>
+<h1 id="DOM事件-看一下"><a href="#DOM事件-看一下" class="headerlink" title=" DOM事件 看一下"></a><font color="red"> DOM事件</font> 看一下</h1><pre><code>事件监听
+btn.onclick.call(this,arguments)  //this = btn,arguments = 参数</code></pre><h2 id="DOM-Level-0"><a href="#DOM-Level-0" class="headerlink" title="DOM Level 0"></a>DOM Level 0</h2><p><code>onclick</code> <code>onerror</code> <code>onload</code> <code>onmouseenter</code></p>
+<p>html 写法 要加括号</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">onclick = fn()   <span class="comment">//fn 类型为字符串</span></span><br></pre></td></tr></table></figure>
+
+<p>js 写法 不能加括号，调用是时候才加</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X.onclick = fn    <span class="comment">//fn 类型为函数对象</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+
+<h2 id="DOM-Level-1"><a href="#DOM-Level-1" class="headerlink" title="DOM Level 1"></a>DOM Level 1</h2><hr>
+
+<h2 id="DOM-Level-2-（最广泛）"><a href="#DOM-Level-2-（最广泛）" class="headerlink" title="DOM Level 2  （最广泛）"></a>DOM Level 2  （最广泛）</h2><p>（2000/11/13） </p>
+<ul>
+<li><code>addEventListener</code> <code>removeEventListener</code></li>
+<li>事件冒泡，事件捕获</li>
+</ul>
+<p><code>addEventListener</code> 可以添加多个 click 方法（队列，先进先出）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 先打印1，再打印2</span></span><br><span class="line">xx.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">&#125;)</span><br><span class="line">xx.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+<p><code>onclick</code>,属性，唯一（工作中，可能别人也用了<code>onclick</code>，可能会把别人的覆盖）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只打印2，后面`onclick`的把前面的覆盖了</span></span><br><span class="line">xx.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line">xx.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="DOM-Events（先事件捕获，绑定同一对象按代码先后顺序，最后事件冒泡）"><a href="#DOM-Events（先事件捕获，绑定同一对象按代码先后顺序，最后事件冒泡）" class="headerlink" title="DOM Events（先事件捕获，绑定同一对象按代码先后顺序，最后事件冒泡）"></a>DOM Events（先事件捕获，绑定同一对象按代码先后顺序，最后事件冒泡）</h3><p>注：jQuery 不支持设置 true或false</p>
+<h4 id="事件冒泡（从里到外）"><a href="#事件冒泡（从里到外）" class="headerlink" title="事件冒泡（从里到外）"></a>事件冒泡（从里到外）</h4><blockquote>
+<p><code>false</code> 或者 <code>不填</code></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 点击 里</span></span><br><span class="line">外.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"外"</span>)</span><br><span class="line">&#125;)</span><br><span class="line">中.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"中"</span>)</span><br><span class="line">&#125;)</span><br><span class="line">里.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"里"</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 里</span></span><br><span class="line"><span class="comment">// 中</span></span><br><span class="line"><span class="comment">// 外</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="事件捕获（从外到里）"><a href="#事件捕获（从外到里）" class="headerlink" title="事件捕获（从外到里）"></a>事件捕获（从外到里）</h4><blockquote>
+<p>多加了一个参数 <code>true</code></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 点击 里 </span></span><br><span class="line">外.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"外"</span>)</span><br><span class="line">&#125;,<span class="literal">true</span>)</span><br><span class="line">中.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"中"</span>)</span><br><span class="line">&#125;,<span class="literal">true</span>)</span><br><span class="line">里.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"里"</span>)</span><br><span class="line">&#125;,<span class="literal">true</span>)</span><br><span class="line"><span class="comment">// 外</span></span><br><span class="line"><span class="comment">// 中</span></span><br><span class="line"><span class="comment">// 里</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="如果同一个事件，绑定了2次，那么就按-先后顺序执行，true，false-失效"><a href="#如果同一个事件，绑定了2次，那么就按-先后顺序执行，true，false-失效" class="headerlink" title="如果同一个事件，绑定了2次，那么就按 先后顺序执行，true，false 失效"></a>如果同一个事件，绑定了2次，那么就按 先后顺序执行，true，false 失效</h4><p><a href="https://jsbin.com/zuqakoxive/edit?html,js,console,output" target="_blank" rel="noopener"><font color="#0F88EB">先事件捕获，再绑定同一对象按代码先后顺序，最后事件冒泡</font></a></p>
+<hr>
+
+<h3 id="点击别处关闭浮层"><a href="#点击别处关闭浮层" class="headerlink" title="点击别处关闭浮层"></a>点击别处关闭浮层</h3><ul>
+<li><code>stopPropagation()</code>  阻止传播</li>
+<li><code>one(&#39;click&#39;,function..)</code>  只监听一次</li>
+</ul>
+<blockquote>
+<h3 id="JS（document-随时被监听，如果-popover-有很多，则不节省内存）"><a href="#JS（document-随时被监听，如果-popover-有很多，则不节省内存）" class="headerlink" title="JS（document 随时被监听，如果 popover 有很多，则不节省内存）"></a>JS（document 随时被监听，如果 popover 有很多，则不节省内存）</h3><p><a href="https://jsbin.com/jiwosacihu/edit?js,console,output" target="_blank" rel="noopener">查看完整代码</a></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">btn.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'点击btn'</span>)</span><br><span class="line">    popover.style.display = <span class="string">'block'</span></span><br><span class="line">&#125;)</span><br><span class="line">wrapper.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'点击wrapper'</span>)</span><br><span class="line">    e.stopPropagation() <span class="comment">// 阻止外部传播进来，所以在 document 被点击的时候，wrapper 里面不受影响</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'点击document'</span>)</span><br><span class="line">    popover.style.display = <span class="string">'none'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h3 id="JQ（仅仅需要在-popover-show-出来后监听一次，节省内存"><a href="#JQ（仅仅需要在-popover-show-出来后监听一次，节省内存" class="headerlink" title="JQ（仅仅需要在 popover show() 出来后监听一次，节省内存)"></a>JQ（仅仅需要在 popover show() 出来后监听一次，节省内存)</h3><p> <code>stopPropagation()</code>和 <code>setTimeout()</code> 这两种方法实现<br><a href="https://jsbin.com/jowifuxevu/edit?js,console,output" target="_blank" rel="noopener">查看stopPropagation()方法完整代码</a><br><a href="https://jsbin.com/xebopujuvi/edit?js,console,output" target="_blank" rel="noopener">查看setTimeout()方法完整代码</a></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方法一 stopPropagation</span></span><br><span class="line"><span class="comment">// 点击 btn，先后打印 '点击btn' '点击wrapper'，同时 popover 也会出现，</span></span><br><span class="line"><span class="comment">// 这时候就开始监听一次 document 的点击事件，点击别处，popover 会隐藏。</span></span><br><span class="line">&#123;</span><br><span class="line">    $(btn).on(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'点击btn'</span>)</span><br><span class="line">        $(popover).show()</span><br><span class="line">        $(<span class="built_in">document</span>).one(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">//只执行一次</span></span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'点击document'</span>)</span><br><span class="line">            $(popover).hide()</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">    $(wrapper).on(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'点击wrapper'</span>)</span><br><span class="line">        e.stopPropagation()</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="comment">// 方法二 用 setTimeout，就不需要 stopPropagation 了；</span></span><br><span class="line"><span class="comment">// 点击 btn，打印 '点击btn'，同时 popover 也会出现，</span></span><br><span class="line"><span class="comment">// 这时候就开始监听一次 document 的点击事件，点击别处，popover 会隐藏。</span></span><br><span class="line">&#123;</span><br><span class="line">    $(btn).on(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'点击btn'</span>)</span><br><span class="line">        $(popover).show()</span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            $(<span class="built_in">document</span>).one(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'点击document'</span>)</span><br><span class="line">                $(popover).hide()</span><br><span class="line">            &#125;)  </span><br><span class="line">        &#125;,<span class="number">0</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/18/HTML常用标签/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1495,178 +1700,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/14/JS里的数据类型/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="R.Y">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/dog.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="R.Y">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/14/JS里的数据类型/" itemprop="url">JS里的数据类型</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-14T21:44:20+08:00">
-                2018-07-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="七种数据类型：number、string、boolean、symbol、undefined、null、object"><a href="#七种数据类型：number、string、boolean、symbol、undefined、null、object" class="headerlink" title="七种数据类型：number、string、boolean、symbol、undefined、null、object"></a>七种数据类型：number、string、boolean、symbol、undefined、null、object</h2><h3 id="前面6种，叫-基本类型-，或简单类型；除了前面6种，其他都是对象；object-为-复杂类型，复杂类型-由-简单类型组成。"><a href="#前面6种，叫-基本类型-，或简单类型；除了前面6种，其他都是对象；object-为-复杂类型，复杂类型-由-简单类型组成。" class="headerlink" title="前面6种，叫 基本类型 ，或简单类型；除了前面6种，其他都是对象；object 为 复杂类型，复杂类型 由 简单类型组成。"></a>前面6种，叫 基本类型 ，或简单类型；除了前面6种，其他都是对象；object 为 复杂类型，复杂类型 由 简单类型组成。</h3><h3 id="1、数字（number）"><a href="#1、数字（number）" class="headerlink" title="1、数字（number）"></a>1、数字（number）</h3><ul>
-<li>整数和小数：1 1.1 .1</li>
-<li>科学记数法：1.23e2</li>
-<li>二进制：0b11</li>
-<li>八进制：011（后来 ES5 添加了 0o11 语法）</li>
-<li>十六进制：0x11</li>
-</ul>
-<h3 id="2、字符串（string）"><a href="#2、字符串（string）" class="headerlink" title="2、字符串（string）"></a>2、字符串（string）</h3><ul>
-<li><p>空字符串：<code>&#39;&#39;</code>（长度0）</p>
-</li>
-<li><p>空格字符串：<code>&#39; &#39;</code>(长度1)</p>
-</li>
-<li><p>多行字符串：</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">'12345'</span> +</span><br><span class="line">	<span class="string">'67890'</span> <span class="comment">// 无回车符号，长度10，s = '1234567890'</span></span><br><span class="line">或</span><br><span class="line"><span class="keyword">var</span> s = <span class="string">'12345</span></span><br><span class="line"><span class="string">67890'</span> <span class="comment">//含回车符号，长度11，1234 和 67890 之间有一个回车</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>转义符：<code>\</code></p>
-</li>
-</ul>
-<pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">'12345\</span></span><br><span class="line"><span class="string">67890'</span> <span class="comment">// 长度10，s = '1234567890'</span></span><br></pre></td></tr></table></figure></code></pre><h3 id="3、布尔（boolean）"><a href="#3、布尔（boolean）" class="headerlink" title="3、布尔（boolean）"></a>3、布尔（boolean）</h3><ul>
-<li>只有两个值 <code>true</code>，<code>false</code></li>
-<li>与运算：<code>&amp;&amp;</code>，全真则真。</li>
-<li>或运算：<code>||</code>，一真则真。</li>
-</ul>
-<h3 id="4、symbol"><a href="#4、symbol" class="headerlink" title="4、symbol"></a>4、symbol</h3><p><a href="https://zhuanlan.zhihu.com/p/22652486" target="_blank" rel="noopener">方应杭：JS 中的 Symbol 是什么？</a></p>
-<h3 id="5、null"><a href="#5、null" class="headerlink" title="5、null"></a>5、null</h3><h3 id="6、undefined"><a href="#6、undefined" class="headerlink" title="6、undefined"></a>6、undefined</h3><p><font color="#0099ff" face="黑体">注：<code>null</code> 和 <code>undefined</code> 区别：</font></p>
-<ul>
-<li>变量没有被赋值，则返回 <code>undefined</code></li>
-<li>有一个对象 <code>object</code> ，但是没有给值，则返回 <code>null</code>，有一个非对象，没有给值，则返回 <code>undefined</code></li>
-</ul>
-<h3 id="7、对象（object）"><a href="#7、对象（object）" class="headerlink" title="7、对象（object）"></a>7、对象（object）</h3><ul>
-<li><p><code>object</code> 就是上面几种基本类型（无序地）组合在一起</p>
-</li>
-<li><p><code>object</code> 里面可以有 <code>object</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    name: <span class="string">'xxx'</span>,</span><br><span class="line">    <span class="string">'child'</span>: &#123;</span><br><span class="line">        name: <span class="string">'Jack'</span></span><br><span class="line">    &#125;, <span class="comment">// 最后这个逗号可有可无</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>object</code> 的 <code>key</code> 一律是字符串，不存在其他类型的 <code>key</code></p>
-</li>
-<li><p><code>object[&#39;&#39;]</code> 是合法的</p>
-</li>
-<li><p><code>object[&#39;key&#39;]</code> 可以写作 <code>object.key</code></p>
-</li>
-<li><p><font color="#0099ff" face="黑体">注意</font> <code>object.key</code> 与 <code>object[key]</code> 不同</p>
-</li>
-<li><p><code>delete object[&#39;key&#39;]</code></p>
-</li>
-<li><p><code>&#39;key&#39; in object</code></p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1714,7 +1752,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

@@ -229,6 +229,173 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/14/JS里的数据类型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="R.Y">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/dog.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="R.Y">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/14/JS里的数据类型/" itemprop="url">JS里的数据类型</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-14T21:44:20+08:00">
+                2018-07-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="七种数据类型：number、string、boolean、symbol、undefined、null、object"><a href="#七种数据类型：number、string、boolean、symbol、undefined、null、object" class="headerlink" title="七种数据类型：number、string、boolean、symbol、undefined、null、object"></a>七种数据类型：number、string、boolean、symbol、undefined、null、object</h2><h3 id="前面6种，叫-基本类型-，或简单类型；除了前面6种，其他都是对象；object-为-复杂类型，复杂类型-由-简单类型组成。"><a href="#前面6种，叫-基本类型-，或简单类型；除了前面6种，其他都是对象；object-为-复杂类型，复杂类型-由-简单类型组成。" class="headerlink" title="前面6种，叫 基本类型 ，或简单类型；除了前面6种，其他都是对象；object 为 复杂类型，复杂类型 由 简单类型组成。"></a>前面6种，叫 基本类型 ，或简单类型；除了前面6种，其他都是对象；object 为 复杂类型，复杂类型 由 简单类型组成。</h3><h3 id="1、数字（number）"><a href="#1、数字（number）" class="headerlink" title="1、数字（number）"></a>1、数字（number）</h3><ul>
+<li>整数和小数：1 1.1 .1</li>
+<li>科学记数法：1.23e2</li>
+<li>二进制：0b11</li>
+<li>八进制：011（后来 ES5 添加了 0o11 语法）</li>
+<li>十六进制：0x11</li>
+</ul>
+<h3 id="2、字符串（string）"><a href="#2、字符串（string）" class="headerlink" title="2、字符串（string）"></a>2、字符串（string）</h3><ul>
+<li><p>空字符串：<code>&#39;&#39;</code>（长度0）</p>
+</li>
+<li><p>空格字符串：<code>&#39; &#39;</code>(长度1)</p>
+</li>
+<li><p>多行字符串：</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">'12345'</span> +</span><br><span class="line">	<span class="string">'67890'</span> <span class="comment">// 无回车符号，长度10，s = '1234567890'</span></span><br><span class="line">或</span><br><span class="line"><span class="keyword">var</span> s = <span class="string">'12345</span></span><br><span class="line"><span class="string">67890'</span> <span class="comment">//含回车符号，长度11，1234 和 67890 之间有一个回车</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>转义符：<code>\</code></p>
+</li>
+</ul>
+<pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">'12345\</span></span><br><span class="line"><span class="string">67890'</span> <span class="comment">// 长度10，s = '1234567890'</span></span><br></pre></td></tr></table></figure></code></pre><h3 id="3、布尔（boolean）"><a href="#3、布尔（boolean）" class="headerlink" title="3、布尔（boolean）"></a>3、布尔（boolean）</h3><ul>
+<li>只有两个值 <code>true</code>，<code>false</code></li>
+<li>与运算：<code>&amp;&amp;</code>，全真则真。</li>
+<li>或运算：<code>||</code>，一真则真。</li>
+</ul>
+<h3 id="4、symbol"><a href="#4、symbol" class="headerlink" title="4、symbol"></a>4、symbol</h3><p><a href="https://zhuanlan.zhihu.com/p/22652486" target="_blank" rel="noopener">方应杭：JS 中的 Symbol 是什么？</a></p>
+<h3 id="5、null"><a href="#5、null" class="headerlink" title="5、null"></a>5、null</h3><h3 id="6、undefined"><a href="#6、undefined" class="headerlink" title="6、undefined"></a>6、undefined</h3><p><font color="#0099ff" face="黑体">注：<code>null</code> 和 <code>undefined</code> 区别：</font></p>
+<ul>
+<li>变量没有被赋值，则返回 <code>undefined</code></li>
+<li>有一个对象 <code>object</code> ，但是没有给值，则返回 <code>null</code>，有一个非对象，没有给值，则返回 <code>undefined</code></li>
+</ul>
+<h3 id="7、对象（object）"><a href="#7、对象（object）" class="headerlink" title="7、对象（object）"></a>7、对象（object）</h3><ul>
+<li><p><code>object</code> 就是上面几种基本类型（无序地）组合在一起</p>
+</li>
+<li><p><code>object</code> 里面可以有 <code>object</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    name: <span class="string">'xxx'</span>,</span><br><span class="line">    <span class="string">'child'</span>: &#123;</span><br><span class="line">        name: <span class="string">'Jack'</span></span><br><span class="line">    &#125;, <span class="comment">// 最后这个逗号可有可无</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>object</code> 的 <code>key</code> 一律是字符串，不存在其他类型的 <code>key</code></p>
+</li>
+<li><p><code>object[&#39;&#39;]</code> 是合法的</p>
+</li>
+<li><p><code>object[&#39;key&#39;]</code> 可以写作 <code>object.key</code></p>
+</li>
+<li><p><font color="#0099ff" face="黑体">注意</font> <code>object.key</code> 与 <code>object[key]</code> 不同</p>
+</li>
+<li><p><code>delete object[&#39;key&#39;]</code></p>
+</li>
+<li><p><code>&#39;key&#39; in object</code></p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/29/css-关于布局居中/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -302,17 +469,17 @@
           
             <p>一般来说，css布局有好几种，我们来看下比较常见的 左右布局 和 左中右布局。</p>
 <h1 id="左右布局"><a href="#左右布局" class="headerlink" title="左右布局"></a>左右布局</h1><h3 id="例如相对固定的，给出了百分比，用-float：left-。（注意用了float，需要在其父元素加上-clear：both）。"><a href="#例如相对固定的，给出了百分比，用-float：left-。（注意用了float，需要在其父元素加上-clear：both）。" class="headerlink" title="例如相对固定的，给出了百分比，用 float：left 。（注意用了float，需要在其父元素加上 clear：both）。"></a>例如相对固定的，给出了百分比，用 <code>float：left</code> 。（注意用了<code>float</code>，需要在其父元素加上 <code>clear：both</code>）。</h3><p><img src="/img/css%E5%B8%83%E5%B1%80/1.png" alt="固定布局"></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>布局<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.clearfix</span><span class="selector-pseudo">::after</span>&#123;</span></span><br><span class="line">            content: "";</span><br><span class="line">            display: block;</span><br><span class="line">            clear: both;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-class">.box</span>&#123;</span></span><br><span class="line">            border: 10px solid red;</span><br><span class="line">            width: 800px;</span><br><span class="line">            height: 500px;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-class">.left</span>,</span></span><br><span class="line"><span class="css">        <span class="selector-class">.right</span>&#123;</span></span><br><span class="line">            float: left;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-class">.left</span>&#123;</span></span><br><span class="line">            width: 30%;</span><br><span class="line">            height: 100%;</span><br><span class="line"><span class="css">            <span class="selector-tag">background</span>: <span class="selector-id">#ddd</span>;</span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-class">.right</span>&#123;</span></span><br><span class="line">            width: 70%;</span><br><span class="line">            height: 100%;</span><br><span class="line">            background: pink;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box clearfix"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span>左边div 30%<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>右边div 70%<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>布局<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br><span class="line">        .clearfix::after&#123;</span><br><span class="line">            content: "";</span><br><span class="line">            display: block;</span><br><span class="line">            clear: both;</span><br><span class="line">        &#125;</span><br><span class="line">        .box&#123;</span><br><span class="line">            border: 10px solid red;</span><br><span class="line">            width: 800px;</span><br><span class="line">            height: 500px;</span><br><span class="line">        &#125;</span><br><span class="line">        .left,</span><br><span class="line">        .right&#123;</span><br><span class="line">            float: left;</span><br><span class="line">        &#125;</span><br><span class="line">        .left&#123;</span><br><span class="line">            width: 30%;</span><br><span class="line">            height: 100%;</span><br><span class="line">            background: #ddd;</span><br><span class="line">        &#125;</span><br><span class="line">        .right&#123;</span><br><span class="line">            width: 70%;</span><br><span class="line">            height: 100%;</span><br><span class="line">            background: pink;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box clearfix"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span>左边div 30%<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>右边div 70%<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="左边固定宽度，右边自适应宽度，那么右侧的宽度由其内部的文档流决定。"><a href="#左边固定宽度，右边自适应宽度，那么右侧的宽度由其内部的文档流决定。" class="headerlink" title="左边固定宽度，右边自适应宽度，那么右侧的宽度由其内部的文档流决定。"></a>左边固定宽度，右边自适应宽度，那么右侧的宽度由其内部的文档流决定。</h3><p>左侧 DIV 设置 <code>float</code> 属性为 <code>left</code>，右侧 DIV 设置 <code>margin-left</code> 属性等于或大于左侧 DIV 宽度<br><img src="/img/css%E5%B8%83%E5%B1%80/2.png" alt="左边固定，右边自适应布局"></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>布局<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.clearfix</span><span class="selector-pseudo">::after</span>&#123;</span></span><br><span class="line">            content: "";</span><br><span class="line">            display: block;</span><br><span class="line">            clear: both;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-class">.box</span>&#123;</span></span><br><span class="line">            border: 10px solid red;</span><br><span class="line">            width: 800px;</span><br><span class="line">            height: 500px;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-class">.left</span>&#123;</span></span><br><span class="line">            float: left;</span><br><span class="line">            width: 300px;</span><br><span class="line">            height: 100%;</span><br><span class="line"><span class="css">            <span class="selector-tag">background</span>: <span class="selector-id">#ddd</span>;</span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-class">.right</span>&#123;</span></span><br><span class="line">            border: 1px solid blue;</span><br><span class="line">            margin-left: 310px;</span><br><span class="line">            height: 100%;</span><br><span class="line">            background: pink;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box clearfix"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span>左边div 300px<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>右边div 自适应<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>布局<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br><span class="line">        .clearfix::after&#123;</span><br><span class="line">            content: "";</span><br><span class="line">            display: block;</span><br><span class="line">            clear: both;</span><br><span class="line">        &#125;</span><br><span class="line">        .box&#123;</span><br><span class="line">            border: 10px solid red;</span><br><span class="line">            width: 800px;</span><br><span class="line">            height: 500px;</span><br><span class="line">        &#125;</span><br><span class="line">        .left&#123;</span><br><span class="line">            float: left;</span><br><span class="line">            width: 300px;</span><br><span class="line">            height: 100%;</span><br><span class="line">            background: #ddd;</span><br><span class="line">        &#125;</span><br><span class="line">        .right&#123;</span><br><span class="line">            border: 1px solid blue;</span><br><span class="line">            margin-left: 310px;</span><br><span class="line">            height: 100%;</span><br><span class="line">            background: pink;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box clearfix"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span>左边div 300px<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>右边div 自适应<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="左中右布局-中间均为自适应"><a href="#左中右布局-中间均为自适应" class="headerlink" title="左中右布局(中间均为自适应)"></a>左中右布局(中间均为自适应)</h1><h3 id="一般如下图（float-margin）"><a href="#一般如下图（float-margin）" class="headerlink" title="一般如下图（float + margin）"></a>一般如下图（<code>float + margin</code>）</h3><p><img src="/img/css%E5%B8%83%E5%B1%80/3.png" alt="左中右布局（float + margin）"></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>布局<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.clearfix</span><span class="selector-pseudo">::after</span>&#123;</span></span><br><span class="line">            content: "";</span><br><span class="line">            display: block;</span><br><span class="line">            clear: both;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-class">.box</span>&#123;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">border</span>: 10<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#000</span>;</span></span><br><span class="line">            width: 1000px;</span><br><span class="line">            height: 500px;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-class">.header</span>&#123;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">width</span><span class="selector-pseudo">:100</span>%;</span></span><br><span class="line">            height: 100px;</span><br><span class="line">            background: yellow;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-class">.main</span>&#123;</span></span><br><span class="line">            width: 100%;</span><br><span class="line">            height: 300px;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-class">.left</span>&#123;</span></span><br><span class="line">            float: left;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 100%;</span><br><span class="line"><span class="css">            <span class="selector-tag">background</span>: <span class="selector-id">#ddd</span>;</span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-class">.right</span>&#123;</span></span><br><span class="line">            float: right;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 100%;</span><br><span class="line">            background: pink;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-class">.center</span>&#123;</span></span><br><span class="line">            margin: 0 200px;</span><br><span class="line">            height: 100%;</span><br><span class="line">            background: red;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-class">.footer</span>&#123;</span></span><br><span class="line">            width: 100%;</span><br><span class="line">            height: 100px;</span><br><span class="line">            background: green;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span>header<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main clearfix"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span>left<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>right<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"center"</span>&gt;</span>center<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"footer"</span>&gt;</span>footer<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>布局<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br><span class="line">        .clearfix::after&#123;</span><br><span class="line">            content: "";</span><br><span class="line">            display: block;</span><br><span class="line">            clear: both;</span><br><span class="line">        &#125;</span><br><span class="line">        .box&#123;</span><br><span class="line">            border: 10px solid #000;</span><br><span class="line">            width: 1000px;</span><br><span class="line">            height: 500px;</span><br><span class="line">        &#125;</span><br><span class="line">        .header&#123;</span><br><span class="line">            width:100%;</span><br><span class="line">            height: 100px;</span><br><span class="line">            background: yellow;</span><br><span class="line">        &#125;</span><br><span class="line">        .main&#123;</span><br><span class="line">            width: 100%;</span><br><span class="line">            height: 300px;</span><br><span class="line">        &#125;</span><br><span class="line">        .left&#123;</span><br><span class="line">            float: left;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 100%;</span><br><span class="line">            background: #ddd;</span><br><span class="line">        &#125;</span><br><span class="line">        .right&#123;</span><br><span class="line">            float: right;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 100%;</span><br><span class="line">            background: pink;</span><br><span class="line">        &#125;</span><br><span class="line">        .center&#123;</span><br><span class="line">            margin: 0 200px;</span><br><span class="line">            height: 100%;</span><br><span class="line">            background: red;</span><br><span class="line">        &#125;</span><br><span class="line">        .footer&#123;</span><br><span class="line">            width: 100%;</span><br><span class="line">            height: 100px;</span><br><span class="line">            background: green;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span>header<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main clearfix"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span>left<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>right<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"center"</span>&gt;</span>center<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"footer"</span>&gt;</span>footer<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p><font color="#0099ff" face="黑体">注意：center是放在最后一个div</font></p>
 <h3 id="还有（float-position）"><a href="#还有（float-position）" class="headerlink" title="还有（float + position）"></a>还有（<code>float + position</code>）</h3><p><img src="/img/css%E5%B8%83%E5%B1%80/4.png" alt="左中右布局（float + position）"></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>布局<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.box</span>&#123;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">border</span>: 10<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#000</span>;</span></span><br><span class="line">            width: 1000px;</span><br><span class="line">            height: 500px;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-class">.header</span>&#123;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">width</span><span class="selector-pseudo">:100</span>%;</span></span><br><span class="line">            height: 100px;</span><br><span class="line">            background: yellow;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-class">.main</span>&#123;</span></span><br><span class="line">            position: relative;</span><br><span class="line">            width: 100%;</span><br><span class="line">            height: 300px;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-class">.left</span>&#123;</span></span><br><span class="line">            float: left;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 100%;</span><br><span class="line"><span class="css">            <span class="selector-tag">background</span>: <span class="selector-id">#ddd</span>;</span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-class">.center</span>&#123;</span></span><br><span class="line">            position: absolute;</span><br><span class="line">            left: 200px;</span><br><span class="line">            right: 200px;</span><br><span class="line">            height: 100%;</span><br><span class="line">            background: red;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-class">.right</span>&#123;</span></span><br><span class="line">            float: right;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 100%;</span><br><span class="line">            background: pink;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-class">.footer</span>&#123;</span></span><br><span class="line">            width: 100%;</span><br><span class="line">            height: 100px;</span><br><span class="line">            background: green;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span>header<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span>left</span><br><span class="line">                <span class="tag">&lt;<span class="name">p</span>&gt;</span>float:left<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"center"</span>&gt;</span>center</span><br><span class="line">                position:absolute;</span><br><span class="line">                left:200px;</span><br><span class="line">                right:200px;</span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>right</span><br><span class="line">                <span class="tag">&lt;<span class="name">p</span>&gt;</span>float:right<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"footer"</span>&gt;</span>footer<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>布局<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br><span class="line">        .box&#123;</span><br><span class="line">            border: 10px solid #000;</span><br><span class="line">            width: 1000px;</span><br><span class="line">            height: 500px;</span><br><span class="line">        &#125;</span><br><span class="line">        .header&#123;</span><br><span class="line">            width:100%;</span><br><span class="line">            height: 100px;</span><br><span class="line">            background: yellow;</span><br><span class="line">        &#125;</span><br><span class="line">        .main&#123;</span><br><span class="line">            position: relative;</span><br><span class="line">            width: 100%;</span><br><span class="line">            height: 300px;</span><br><span class="line">        &#125;</span><br><span class="line">        .left&#123;</span><br><span class="line">            float: left;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 100%;</span><br><span class="line">            background: #ddd;</span><br><span class="line">        &#125;</span><br><span class="line">        .center&#123;</span><br><span class="line">            position: absolute;</span><br><span class="line">            left: 200px;</span><br><span class="line">            right: 200px;</span><br><span class="line">            height: 100%;</span><br><span class="line">            background: red;</span><br><span class="line">        &#125;</span><br><span class="line">        .right&#123;</span><br><span class="line">            float: right;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 100%;</span><br><span class="line">            background: pink;</span><br><span class="line">        &#125;</span><br><span class="line">        .footer&#123;</span><br><span class="line">            width: 100%;</span><br><span class="line">            height: 100px;</span><br><span class="line">            background: green;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span>header<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span>left</span><br><span class="line">                <span class="tag">&lt;<span class="name">p</span>&gt;</span>float:left<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"center"</span>&gt;</span>center</span><br><span class="line">                position:absolute;</span><br><span class="line">                left:200px;</span><br><span class="line">                right:200px;</span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>right</span><br><span class="line">                <span class="tag">&lt;<span class="name">p</span>&gt;</span>float:right<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"footer"</span>&gt;</span>footer<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="水平居中和垂直居中"><a href="#水平居中和垂直居中" class="headerlink" title="水平居中和垂直居中"></a>水平居中和垂直居中</h1><h3 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h3><p>情况如下</p>
 <h4 id="1、行内元素"><a href="#1、行内元素" class="headerlink" title="1、行内元素"></a>1、行内元素</h4><p>将行内元素，包裹在一个 块级元素 的父级，再在设置 父级 <code>text-algin：center</code>。</p>
@@ -1539,143 +1706,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/05/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="R.Y">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/dog.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="R.Y">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/05/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-05T17:25:08+08:00">
-                2018-05-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1723,7 +1758,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
