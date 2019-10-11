@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="作为新手，学习git，稍稍总结了一点 比如，我们需要把一个本地的目录放入git里面，我们将需要在该目录中创造出一个git的环境。 首先，就是进入该目录，可以通过 pwd 看到当前的位置， 第二步，通过 git init 命令把这个目录变成git管理的仓库(可以创建一个空的git存储库或重新初始化现有的存储库)。： 1$ git init   这时候你 ls -ah 命令就能看见一个 .git 的隐">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git入门教程">
+<meta property="og:url" content="http://yoursite.com/2018/05/06/git入门/index.html">
+<meta property="og:site_name" content="R.Y">
+<meta property="og:description" content="作为新手，学习git，稍稍总结了一点 比如，我们需要把一个本地的目录放入git里面，我们将需要在该目录中创造出一个git的环境。 首先，就是进入该目录，可以通过 pwd 看到当前的位置， 第二步，通过 git init 命令把这个目录变成git管理的仓库(可以创建一个空的git存储库或重新初始化现有的存储库)。： 1$ git init   这时候你 ls -ah 命令就能看见一个 .git 的隐">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/img/git/1.png">
+<meta property="og:image" content="http://yoursite.com/img/git/2.png">
+<meta property="og:image" content="http://yoursite.com/img/git/6.png">
+<meta property="og:image" content="http://yoursite.com/img/git/5.png">
+<meta property="og:image" content="http://yoursite.com/img/git/3.png">
+<meta property="og:image" content="http://yoursite.com/img/git/4.png">
+<meta property="og:image" content="http://yoursite.com/img/git/7.png">
+<meta property="og:image" content="http://yoursite.com/img/git/8.png">
+<meta property="og:image" content="http://yoursite.com/img/git/9.png">
+<meta property="og:updated_time" content="2018-05-10T15:15:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git入门教程">
+<meta name="twitter:description" content="作为新手，学习git，稍稍总结了一点 比如，我们需要把一个本地的目录放入git里面，我们将需要在该目录中创造出一个git的环境。 首先，就是进入该目录，可以通过 pwd 看到当前的位置， 第二步，通过 git init 命令把这个目录变成git管理的仓库(可以创建一个空的git存储库或重新初始化现有的存储库)。： 1$ git init   这时候你 ls -ah 命令就能看见一个 .git 的隐">
+<meta name="twitter:image" content="http://yoursite.com/img/git/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/06/git入门/">
+
+
+
+
+
+  <title>git入门教程 | R.Y</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">R.Y</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/06/git入门/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="R.Y">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/dog.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="R.Y">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">git入门教程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-06T20:55:37+08:00">
+                2018-05-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>作为新手，学习git，稍稍总结了一点</p>
+<p>比如，我们需要把一个本地的目录放入git里面，我们将需要在该目录中创造出一个git的环境。</p>
+<p>首先，就是进入该目录，可以通过 pwd 看到当前的位置，</p>
+<p>第二步，通过 git init 命令把这个目录变成git管理的仓库(可以创建一个空的git存储库或重新初始化现有的存储库)。：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/git/1.png" alt="git init"></p>
+<p>这时候你 ls -ah 命令就能看见一个 .git 的隐藏目录，这样git的仓库就建好了</p>
+<p>接着，你在此目录中又编写了一个 file1.html 文件，这时候你想要将该文件放入git仓库，</p>
+<p>这时候就 git add ，把文件添加到仓库，放入暂存区：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add file1.html</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/git/2.png" alt="git add"></p>
+<p>这时候将没有任何提示，添加成功。</p>
+<p>紧接着，用 git commit -m “第一次提交”，把文件正式提交到仓库：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m <span class="string">"第一次提交"</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/git/6.png" alt="git commit -m &quot;第一次提交&quot;"></p>
+<p>于是就将文件成功提交到了仓库。</p>
+<p>下面我们修改一次 file1.html 文件里面的内容，然后保存：</p>
+<p><img src="/img/git/5.png" alt="hello"></p>
+<p>每次修改，我们都需要 git add 一下，这次 git commit -v ，把文件正式提交到仓库，并且提交时显示所有diff信息：</p>
+<p><img src="/img/git/3.png" alt="git commit -v"></p>
+<p>我们在虚线分割线上，写我们需要备注的信息：修改file1.html，保存退出后，可以看到：</p>
+<p><img src="/img/git/4.png" alt=" "></p>
+<p>最后，<code>git push</code>推上git仓库！（如果多人合作，<code>git push</code> 之前，一般需要先<code>git pull</code>）</p>
+<h1 id="ok！"><a href="#ok！" class="headerlink" title="ok！"></a>ok！</h1><h1 id="git-常见问题"><a href="#git-常见问题" class="headerlink" title="git 常见问题"></a>git 常见问题</h1><h2 id="Git-push的时候卡住解决方法"><a href="#Git-push的时候卡住解决方法" class="headerlink" title="Git push的时候卡住解决方法"></a>Git push的时候卡住解决方法</h2><p>用git push到远程repository的时候一直卡着</p>
+<p>类似下图<br><img src="/img/git/7.png" alt=" "></p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>百度到的解决方法是：</p>
+<p>添加sendpack.sideband属性并置为false</p>
+<p>全局的：git config –global sendpack.sideband false</p>
+<p>仓库的：git config –local sendpack.sideband false</p>
+<p>通过git config –local -l 查看仓库级配置，可以看到有sendpack.sideband这一项并且是置为false的。<br><img src="/img/git/8.png" alt="git config --local -l"></p>
+<p>如果并没有什么用。。</p>
+<h2 id="最后解决的是："><a href="#最后解决的是：" class="headerlink" title="最后解决的是："></a>最后解决的是：</h2><p>先git pull 虽然当前明明已经是up-to-date</p>
+<p>再git push 就没问题了</p>
+<h2 id="modified-xxx-modified-content-untracked-content"><a href="#modified-xxx-modified-content-untracked-content" class="headerlink" title="modified: xxx(modified content, untracked content)"></a>modified: xxx(modified content, untracked content)</h2><p>提交代码到服务器后发现git clone下来的有些目录是空的。</p>
+<p>查看服务器的目录果然是空的。看本季git add .    后查看git  status<br><img src="/img/git/9.png" alt="git config --local -l"></p>
+<p>modified: xxx(modified content, untracked content)<br>大概意思是xxx目录没有被跟踪。那自然push上去的时候是空的了</p>
+<h2 id="解决办法："><a href="#解决办法：" class="headerlink" title="解决办法："></a>解决办法：</h2><p>后来发现这主要是 <code>xxx</code> 目录下有一个.git目录，可能是被人给你这个目录的时候里面有了.git目录。删除.git目录。重新git add .就可以了。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/05/怎样使用ls-cat-mv-touch命令/" rel="next" title="ls,cat,mv,touch一些常用的命令">
+                <i class="fa fa-chevron-left"></i> ls,cat,mv,touch一些常用的命令
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/10/初学者HTTP/" rel="prev" title="初学HTTP">
+                初学HTTP <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/dog.gif" alt="R.Y">
+            
+              <p class="site-author-name" itemprop="name">R.Y</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ok！"><span class="nav-number">1.</span> <span class="nav-text">ok！</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git-常见问题"><span class="nav-number">2.</span> <span class="nav-text">git 常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-push的时候卡住解决方法"><span class="nav-number">2.1.</span> <span class="nav-text">Git push的时候卡住解决方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方法"><span class="nav-number">2.2.</span> <span class="nav-text">解决方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后解决的是："><span class="nav-number">2.3.</span> <span class="nav-text">最后解决的是：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#modified-xxx-modified-content-untracked-content"><span class="nav-number">2.4.</span> <span class="nav-text">modified: xxx(modified content, untracked content)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决办法："><span class="nav-number">2.5.</span> <span class="nav-text">解决办法：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">R.Y</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
