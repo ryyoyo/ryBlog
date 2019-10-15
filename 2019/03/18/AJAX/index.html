@@ -96,7 +96,7 @@
 <meta property="og:image" content="http://yoursite.com/img/AJAX/7.png">
 <meta property="og:image" content="http://yoursite.com/img/AJAX/8.png">
 <meta property="og:image" content="http://yoursite.com/img/AJAX/9.png">
-<meta property="og:updated_time" content="2019-10-14T06:16:30.451Z">
+<meta property="og:updated_time" content="2019-10-14T14:16:39.455Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AJAX&#x2F;同源策略&#x2F;跨域">
 <meta name="twitter:description" content="AJAX (Async JavaScript And XML) 异步JavaScript和XMLJesse James Garrett 讲如下技术取名叫做 AJAX：异步的 JavaScript 和 XML 使用 XMLHttpRequest 发请求 服务器返回 XML 格式的字符串 JS 解析 XML，并更新局部页面⚠️（现在服务器都是返回 JSON 格式）   如何发请求 1.用 form 可">
@@ -374,7 +374,9 @@
 <p> <font color="#7CC8F6"> 只有协议+端口+域名 一模一样一模一样 才能发 AJAX 请求 </font></p>
 <h4 id="突破同源策略-CORS跨域"><a href="#突破同源策略-CORS跨域" class="headerlink" title="突破同源策略 === CORS跨域"></a>突破同源策略 === CORS跨域</h4><p>如果浏览器没有 同源策略 那么网络就没隐私可言,<br>如果一个网页前端 非要访问另一个网页的后端，就可以让另一个网页的后端设置这一段代码</p>
 <h5 id="使用方法如下："><a href="#使用方法如下：" class="headerlink" title="使用方法如下："></a>使用方法如下：</h5><p><code>Access-Control-Allow-Origin</code>是HTML5中定义的一种解决资源跨域的策略。<br><img src="/img/AJAX/9.png" alt="点view source"></p>
-<h5 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h5><p>JSONP 和 CORS 都可以发请求，不同在于，<br>JSONP 只能发 GET 请求，<br>CORS 可以选择发 POST / GET 请求，（要用 POST ，工作中打电话给 后端 要一个 CORS 头）</p>
+<h5 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h5><blockquote>
+<p><font color="#5f9ea0"> 用 CORS 还是 JSONP？</font><br>JSONP 和 CORS 都可以发请求，不同在于，<br>JSONP 只能发 GET 请求，<br>CORS 可以选择发 POST / GET 请求，（要用 POST ，工作中打电话给 后端 要一个 CORS 头）</p>
+</blockquote>
 <p>AJAX 很安全，因为有 同源策略</p>
 
       
